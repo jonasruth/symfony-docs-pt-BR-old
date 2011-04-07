@@ -1,9 +1,7 @@
 .. index::
    single: Model
 
-Introduction to the "Model"
-====================
-Introdução ao "Model"
+Introduction to the "Model" / Introdução ao "Model"
 ====================
 
 If you wanted to learn more about fashion models and supermodels, then this
@@ -50,8 +48,7 @@ base de dados e passa a array para a View. A View renderiza o HTML que é interp
 browser.
 
 
-What is a Model anyway?
-O que é um Model mesmo?
+What is a Model anyway? / O que é um Model mesmo?
 -----------------------
 
 The *Model* is what the "M" in "MVC_" stands for. It is one of the three
@@ -128,7 +125,7 @@ that you want to save into some sort of data storage mechanism and
 retrieve later. The rest of the chapter is dedicated to explaining how
 to interact with the database.
 
-Databases and Symfony2
+Databases and Symfony2 / Bancos de dados e o Symfony2
 ----------------------
 
 It is worth noting that Symfony2 doesn't come with an ORM or database
@@ -155,7 +152,7 @@ Going forward, you'll learn about the `Doctrine2 ORM`_ and Doctrine2
 store) as both have the deepest integration with Symfony2 at the time of
 this writing.
 
-A Model is not a Table
+A Model is not a Table / Um Model não é uma tabela
 ----------------------
 
 The perception of a model class as a database table, and each individual
@@ -238,7 +235,7 @@ in building a performant system. By using transactions and in-memory object
 change tracking, Doctrine2 minimizes the communication with the database,
 saving not only database execution time, but also expensive network communication.
 
-Conclusion
+Conclusion / Conclusão
 ----------
 
 Thanks to Doctrine2, The Model is now probably the simplest concept in
@@ -246,7 +243,7 @@ Symfony2: it is in your complete control and not limited by persistence
 specifics.
 
 Graças ao Doctrine2, o "Model" é agora provavelmente o conceito mais simples
-do Symfony2: está completamente em seu controle e não limitado por especifidades da 
+do Symfony2: está completamente sob seu controle e não limitado por especifidades da 
 persistência.
 
 By teaming up with Doctrine2 to keep your code relieved of persistence
