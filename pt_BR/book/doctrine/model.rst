@@ -62,7 +62,7 @@ Um *Model* é o significado do "M" no "MVC_". É uma das três baleias de
 uma aplicação MVC. Um modelo é responsável por mudar seu estado interno
 baseado em requisições vindas do :doc:`controller
 </quick_tour/the_controller>` e dando informações sobre seu estado atual
-para o :doc:`view </book/templating>`. Isso é o principal detentor da
+para o :doc:`view </book/templating>`. Ele [o Model] é o principal detentor da
 lógica da aplicação.
 
 For example, if you are building a blog, then you'll have a ``Post``
@@ -120,10 +120,19 @@ It is obvious that the above class is very simple and testable, yet it's
 mostly complete and will fulfill all the needs of a simple blogging
 engine.
 
+É óbvio que a classe acima é bem simples e testável, no entanto é 
+quase completa e vai satisfazer todas as necessidades de um simples
+gerenciador de blogs. 
+
 That's it! You now you know what a Model in Symfony2 is: it is any class
 that you want to save into some sort of data storage mechanism and
 retrieve later. The rest of the chapter is dedicated to explaining how
 to interact with the database.
+
+É isso aí! Você agora sabe o que um Model no Symfony2 é: é alguma
+classe que você quer salvar em algum tipo de sistema de armazenamento e 
+recuperar depois. O restante do capítulo é dedicado a explicar como interagir 
+com a base de dados.
 
 Databases and Symfony2 / Bancos de dados e o Symfony2
 ----------------------
