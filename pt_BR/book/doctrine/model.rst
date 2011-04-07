@@ -2,8 +2,9 @@
    single: Model
 
 Introduction to the "Model"
+====================
 Introdução ao "Model"
-===========================
+================
 
 If you wanted to learn more about fashion models and supermodels, then this
 section won't be helpful to you. But if you're looking to learn about the
