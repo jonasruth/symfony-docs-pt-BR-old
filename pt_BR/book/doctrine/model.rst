@@ -2,6 +2,7 @@
    single: Model
 
 Introduction to the "Model"
+Introdução ao "Model"
 ===========================
 
 If you wanted to learn more about fashion models and supermodels, then this
@@ -9,6 +10,12 @@ section won't be helpful to you. But if you're looking to learn about the
 model - the layer in your application that manages data - then keep reading.
 The Model description in this section is the one used when talking about
 *Model-View-Controller* applications.
+
+Se você queria aprender mais sobre desfiles e top models, então esta seção
+não vai ser útil para você. Mas se você está procurando aprender sobre o 
+modelo - a camada da sua aplicação que gerencia dados - então continue lendo.
+A descrição de Model nesta seção é a única usada para falar sobre aplicações 
+*Model-View-Controller*.
 
 .. note::
 
@@ -20,6 +27,14 @@ The Model description in this section is the one used when talking about
    goal. The controller focuses on changing the data of the Model, the Model
    exposes its data for the View, and the View focuses on creating
    representations of the Model (e.g. an HTML page displaying "Blog Posts").
+   
+   Model-View-Controller (MVC) é um padrão de projeto de aplicação, que 
+   foi originalmente introduzido por Trygve Reenskaug para a plataforma Smalltalk.
+   A idéia principal é separar a apresentação dos dados separando o controlador
+   da apresentação. Esse tipo de separação faz cada parte da aplicação focar em
+   exatamente um ponto. O Controller foca na mudança dos dados do Model, o Model
+   expõe seus dados para a View, e a View foca em criar a representação do Model.
+   (Ex. uma página HTML mostrando "Postagens do Blog".
 
 For example, when a user goes to your blog homepage, the user's browser sends
 a request, which is passed to the Controller responsible for rendering
@@ -27,7 +42,15 @@ posts. The Controller calculates which posts should be displayed, retrieves
 ``Post`` Models from the database and passes that array to the View. The
 View renders HTML that is interpreted by the browser.
 
+Por exemplo, quando um usuário vai para a homepage do seu blog, o browser do usuário
+envia uma requisição, que é passada ao Controller responsável por renderizar postagens.
+O Controller calcula quais postagens devem ser exibidas, recupera os Models de ``Post`` da
+base de dados e passa a array para a View. A View renderiza o HTML que é interpretado pelo
+browser.
+
+
 What is a Model anyway?
+O que é um Model mesmo?
 -----------------------
 
 The *Model* is what the "M" in "MVC_" stands for. It is one of the three
@@ -37,9 +60,20 @@ internal state based on requests from the :doc:`controller
 to the :doc:`view </book/templating>`. It is the main
 application logic container.
 
+Um *Model* é o significado do "M" no "MVC_". É uma das três baleias de 
+uma aplicação MVC. Um modelo é responsável por mudar seu estado interno
+baseado em requisições vindas do :doc:`controller
+</quick_tour/the_controller>` e dando informações sobre seu estado atual
+para o :doc:`view </book/templating>`. Isso é o principal detentor da
+lógica da aplicação.
+
 For example, if you are building a blog, then you'll have a ``Post``
 model. If you're building a content management system, then you will
 need a ``Page`` model.
+
+Por exemplo, se você está construindo um blog, então você vai ter um modelo 
+``Post``. Se você está contruindo um sistema de gerenciamento de conteúdo (CMS), 
+então você vai precisar de um modelo ``Page``.
 
 .. code-block:: php
     
@@ -210,10 +244,16 @@ Thanks to Doctrine2, The Model is now probably the simplest concept in
 Symfony2: it is in your complete control and not limited by persistence
 specifics.
 
+Graças ao Doctrine2, o "Model" é agora provavelmente o conceito mais simples
+do Symfony2: está completamente em seu controle e não limitado por especifidades da 
+persistência.
+
 By teaming up with Doctrine2 to keep your code relieved of persistence
 details, Symfony2 makes building database-aware applications even
 simpler. Application code stays clean, which will decrease development
 time and improve understandability of the code.
+
+
 
 .. _Doctrine: http://www.doctrine-project.org/
 .. _Propel: http://www.propelorm.org/
