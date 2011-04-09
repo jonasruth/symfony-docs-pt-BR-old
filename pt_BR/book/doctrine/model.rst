@@ -16,7 +16,7 @@ modelo - a camada da sua aplicação que gerencia dados - então continue lendo.
 A descrição de Model nesta seção é a única usada para falar sobre aplicações 
 *Model-View-Controller*.
 
-.. note::
+.. nota::
 
    Model-View-Controller (MVC) is an application design pattern, that
    was originally introduced by Trygve Reenskaug for the Smalltalk
@@ -48,7 +48,7 @@ base de dados e passa a array para a View. A View renderiza o HTML que é interp
 browser.
 
 
-What is a Model anyway? / O que é um Model mesmo?
+What is a Model anyway? / O que é um Model afinal?
 -----------------------
 
 The *Model* is what the "M" in "MVC_" stands for. It is one of the three
@@ -58,10 +58,10 @@ internal state based on requests from the :doc:`controller
 to the :doc:`view </book/templating>`. It is the main
 application logic container.
 
-Um *Model* é o significado do "M" no "MVC_". É uma das três baleias de 
-uma aplicação MVC. Um modelo é responsável por mudar seu estado interno
+Um *Model* é o significado do "M" no "MVC_". É um dos três pilares de 
+uma aplicação MVC. Um modelo é responsável por mudar seu estado interno 
 baseado em requisições vindas do :doc:`controller
-</quick_tour/the_controller>` e dando informações sobre seu estado atual
+</quick_tour/the_controller>` e fornecer informações sobre seu estado atual
 para o :doc:`view </book/templating>`. Ele [o Model] é o principal detentor da
 lógica da aplicação.
 
@@ -120,7 +120,7 @@ It is obvious that the above class is very simple and testable, yet it's
 mostly complete and will fulfill all the needs of a simple blogging
 engine.
 
-É óbvio que a classe acima é bem simples e testável, no entanto é 
+É óbvio que a classe acima é bem simples e testável, no entanto está 
 quase completa e vai satisfazer todas as necessidades de um simples
 gerenciador de blogs. 
 
@@ -129,7 +129,7 @@ that you want to save into some sort of data storage mechanism and
 retrieve later. The rest of the chapter is dedicated to explaining how
 to interact with the database.
 
-É isso aí! Você agora sabe o que um Model no Symfony2 é: é alguma
+É isso aí! Agora você sabe o que é um Model no Symfony2: é alguma
 classe que você quer salvar em algum tipo de sistema de armazenamento e 
 recuperar depois. O restante do capítulo é dedicado a explicar como interagir 
 com a base de dados.
@@ -142,7 +142,12 @@ abstraction library of its own, this is just not the problem Symfony2 is
 meant to solve. However, it provides deep integration with libraries
 like Doctrine_ and Propel_, letting you use whichever one you like best.
 
-.. note::
+É uma pena observar que o Symfony2 não vem com seu próprio ORM ou biblioteca
+de abstração de banco de dados, isto não é um problema que o Symfony2 
+tenha que resolver. De qualquer maneira, ele fornece profunda integração com
+bibiliotecas como Doctrine_ and Propel_, deixando que você qual você acha melhor.
+
+.. nota::
 
    The acronym "ORM" stands for "Object Relational Mapping" and
    represents a programming technique of converting data between
@@ -170,24 +175,50 @@ a good way of thinking about the model at first and it will get you far
 enough, if you're exposing a simple `CRUD`_ (create, retrieve, update,
 delete) interface in your application for modifying the data of a model.
 
+A percepção de um modelo de classe como uma tabela de banco de dados,
+e cada instância individual como uma tupla foi popularizada pelo
+framework Ruby on Rails. Issa é uma boa forma de pensar sobre o
+modelo primeiro e isso levará você longe o bastante, se você está
+expondo uma simples interface `CRUD`_ (create, retrieve, updade, delete)
+na sua aplicação para modificar os dados de um modelo.
+
 This approach can actually cause problems once you're past the CRUD part
 of your application and are trying to add more business logic. Here are
 the common limitations of the above-described approach:
+
+Esta abordagem pode atualmente causar problemas ao menos que você
+esteja passando a parte do CRUD da sua aplicação e está tentando 
+adicionar mais regras de negócio. Estas são as limitações comuns da
+abordagem acima descrita:
 
 * Designing schema before software that will utilize it is like digging
   a hole before you've identified what you need to bury. The item might
   fit, but most probably it won't.
 
+* Projetar o esquema antes do software que irá utilizá-lo é como cavar
+um buraco antes de saber o que você irá precisar enterrar nele.
+
 * Database should be tailored to fit your application's needs, not the
   other way around.
+
+* Bancos de dados precisam ser adaptados para atender as necessidades
+da sua aplicação, não o contrário.
 
 * Some data storage engines don't have a notion of tables, rows or even
   schema, which makes it hard to use them if your perception of a model
   is that it represents a table.
 
+* Alguns mecanismos de armazenamento de dados não têm uma noção
+ de tabelas, linhas ou até mesmo de esquema, o que torna difícil usá-los se
+ a sua percepção de um modelo é que ele representa uma tabela.
+
 * Keeping database schema in your head while designing your application
   domain is problematic, and following the rule of the lowest common
   denominator will give you the worst of both worlds.
+
+* Mantendo o esquema de banco de dados na sua cabeça enquanto
+planeja o domínio da sua aplicação é problemático, e seguindo a regra
+do menor denominador comum vai lhe trazer o pior dos dois mundos.
 
 The `Doctrine2 ORM`_ is designed to remove the need to keep database
 structure in mind and let you concentrate on writing the cleanest
@@ -195,7 +226,14 @@ possible models that will satisfy your business needs. It lets you design
 your classes and their interactions, allowing you to postpone persistence
 decisions until you're ready.
 
-Paradigm Shift
+O `Doctrine2 ORM`_ é concebido para remover a necessidade de manter
+a estrutura de banco de dados em mente e deixar você concentrar-se em
+os modelos mais simples possíveis e que satisfarão as necessidades do
+seu negócio. Ele deixa você projetar suas classes e as interações delas,
+possibilitando que você adie decisões sobre a persistência até que você 
+esteja pronto.
+
+Paradigm Shift / Mudança de Paradigma
 --------------
 
 With the introduction of Doctrine2, some of the core paradigms have
@@ -209,6 +247,13 @@ of this guide it should be clear, that a car cannot start by itself, there
 must be an external impulse to start it. In a similar manner, a model cannot
 save itself without an external impulse, therefore the following piece of
 code violates DDD and will be troublesome to redesign in a clean, testable way.
+
+Com a introdução do Doctrine2, muitos dos paradigmas fundamentais foram alterados.
+`Domain Driven Design`_ nos ensida que objetos são melhores modelados quando
+modelados após seus protótipos do mundo real. Por exemplo um objeto `Carro` é
+melhor modelado contendo `Motor`, quatro instâncias de `Pneu`, etc. e deve ser
+produzido pela `FabricaDeCarros` - alguma coisa que saiba como montar todas as partes
+juntas. 
 
 .. code-block:: php
 
