@@ -206,7 +206,9 @@ da sua aplicação, não o contrário.
   schema, which makes it hard to use them if your perception of a model
   is that it represents a table.
 
-* Alguns mecanismos de armazenamento de dados não têm uma noção de tabelas, linhas ou até mesmo de esquema, o que torna difícil usá-los se a sua percepção de um modelo é que ele representa uma tabela.
+* Alguns mecanismos de armazenamento de dados não têm uma noção de tabelas, 
+linhas ou até mesmo de esquema, o que torna difícil usá-los se a sua percepção de um 
+modelo é que ele representa uma tabela.
 
 * Keeping database schema in your head while designing your application
   domain is problematic, and following the rule of the lowest common
