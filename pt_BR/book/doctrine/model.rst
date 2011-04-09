@@ -195,22 +195,18 @@ abordagem acima descrita:
   a hole before you've identified what you need to bury. The item might
   fit, but most probably it won't.
 
-* Projetar o esquema antes do software que irá utilizá-lo é como cavar
-um buraco antes de saber o que você irá precisar enterrar nele.
+* Projetar o esquema antes do software que irá utilizá-lo é como cavar um buraco antes de saber o que você irá precisar enterrar nele.
 
-* Database should be tailored to fit your application's needs, not the
-  other way around.
+* Database should be tailored to fit your application's needs, not the other way around.
 
-* Bancos de dados precisam ser adaptados para atender as necessidades
+* Bancos de dados precisam ser adaptados para atender as necessidades 
 da sua aplicação, não o contrário.
 
 * Some data storage engines don't have a notion of tables, rows or even
   schema, which makes it hard to use them if your perception of a model
   is that it represents a table.
 
-* Alguns mecanismos de armazenamento de dados não têm uma noção
- de tabelas, linhas ou até mesmo de esquema, o que torna difícil usá-los se
- a sua percepção de um modelo é que ele representa uma tabela.
+* Alguns mecanismos de armazenamento de dados não têm uma noção de tabelas, linhas ou até mesmo de esquema, o que torna difícil usá-los se a sua percepção de um modelo é que ele representa uma tabela.
 
 * Keeping database schema in your head while designing your application
   domain is problematic, and following the rule of the lowest common
