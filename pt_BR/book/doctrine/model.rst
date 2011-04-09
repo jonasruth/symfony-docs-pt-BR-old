@@ -1,8 +1,10 @@
 .. index::
    single: Model
 
-Introduction to the "Model" / Introdução ao "Model"
-====================
+Introduction to the "Model"
+===================
+Introdução ao "Model"
+================
 
 If you wanted to learn more about fashion models and supermodels, then this
 section won't be helpful to you. But if you're looking to learn about the
@@ -16,7 +18,7 @@ modelo - a camada da sua aplicação que gerencia dados - então continue lendo.
 A descrição de Model nesta seção é a única usada para falar sobre aplicações 
 *Model-View-Controller*.
 
-.. nota::
+.. note::
 
    Model-View-Controller (MVC) is an application design pattern, that
    was originally introduced by Trygve Reenskaug for the Smalltalk
@@ -48,8 +50,10 @@ base de dados e passa a array para a View. A View renderiza o HTML que é interp
 browser.
 
 
-What is a Model anyway? / O que é um Model afinal?
------------------------
+What is a Model anyway?
+--------------------------------------
+O que é um Model afinal?
+--------------------------------------
 
 The *Model* is what the "M" in "MVC_" stands for. It is one of the three
 whales of an MVC application. A model is responsible for changing its
@@ -134,7 +138,9 @@ classe que você quer salvar em algum tipo de sistema de armazenamento e
 recuperar depois. O restante do capítulo é dedicado a explicar como interagir 
 com a base de dados.
 
-Databases and Symfony2 / Bancos de dados e o Symfony2
+Databases and Symfony2
+----------------------
+Bancos de dados e o Symfony2
 ----------------------
 
 It is worth noting that Symfony2 doesn't come with an ORM or database
@@ -147,7 +153,7 @@ de abstração de banco de dados, isso apenas não é da conta do Symfony2.
 De qualquer maneira, ele fornece profunda integração com bibiliotecas como 
 Doctrine_ and Propel_, deixando que você escolha utilizar a qual preferir.
 
-.. nota::
+.. note::
 
    The acronym "ORM" stands for "Object Relational Mapping" and
    represents a programming technique of converting data between
@@ -166,8 +172,10 @@ Going forward, you'll learn about the `Doctrine2 ORM`_ and Doctrine2
 store) as both have the deepest integration with Symfony2 at the time of
 this writing.
 
-A Model is not a Table / Um Model não é uma tabela
-----------------------
+A Model is not a Table
+---------------------------------
+Um Model não é uma tabela
+------------------------------------------
 
 The perception of a model class as a database table, and each individual
 instance as a row was popularized by the Ruby on Rails framework. It's
@@ -232,8 +240,10 @@ seu negócio. Ele deixa você projetar suas classes e as interações delas,
 possibilitando que você adie decisões sobre a persistência até que você 
 esteja pronto.
 
-Paradigm Shift / Mudança de Paradigma
---------------
+Paradigm Shift
+--------------------------------------
+Mudança de Paradigma
+--------------------------------------
 
 With the introduction of Doctrine2, some of the core paradigms have
 shifted. `Domain Driven Design`_ teaches us that objects are best
@@ -257,10 +267,6 @@ ligar-se sozinho, deve haver um impulso externo para ligá-lo. De maneira semelh
 um modelo não pode salvar-se sem um impulso externo, portanto, o seguinte pedaço de 
 código viola o DDD (Domain Driven Design) e vai ser problemático para reprojetá-lo de 
 forma limpa e testável.
-
-
-
-
 
 .. code-block:: php
 
@@ -330,8 +336,10 @@ transações de objeto na memória, o Doctrine2 diminui a comunicação com o ba
 economizando não somente no tempo de execução do banco de dados, mas também 
 o grande tráfego na rede.
 
-Conclusion / Conclusão
-----------
+Conclusion 
+----------------
+Conclusão
+----------------
 
 Thanks to Doctrine2, The Model is now probably the simplest concept in
 Symfony2: it is in your complete control and not limited by persistence
@@ -346,7 +354,10 @@ details, Symfony2 makes building database-aware applications even
 simpler. Application code stays clean, which will decrease development
 time and improve understandability of the code.
 
-
+Ao associar-se ao Doctrine2 para manter o seu código aliviado dos detalhes de 
+persistência, o Symfony2 torna mais simples a construção de aplicações 
+"database-aware". O código do aplicativo fica limpo, o que diminuirá o tempo de 
+desenvolvimento e melhorará a legibilidade do código.
 
 .. _Doctrine: http://www.doctrine-project.org/
 .. _Propel: http://www.propelorm.org/
