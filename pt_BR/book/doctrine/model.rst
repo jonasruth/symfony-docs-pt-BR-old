@@ -143,9 +143,9 @@ meant to solve. However, it provides deep integration with libraries
 like Doctrine_ and Propel_, letting you use whichever one you like best.
 
 É uma pena observar que o Symfony2 não vem com seu próprio ORM ou biblioteca
-de abstração de banco de dados, isto não é um problema que o Symfony2 
-tenha que resolver. De qualquer maneira, ele fornece profunda integração com
-bibiliotecas como Doctrine_ and Propel_, deixando que você qual você acha melhor.
+de abstração de banco de dados, isso apenas não é da conta do Symfony2. 
+De qualquer maneira, ele fornece profunda integração com bibiliotecas como 
+Doctrine_ and Propel_, deixando que você escolha utilizar a qual preferir.
 
 .. nota::
 
