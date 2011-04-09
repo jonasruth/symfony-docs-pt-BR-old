@@ -196,28 +196,28 @@ abordagem acima descrita:
   fit, but most probably it won't.
 
 * Projetar o esquema antes do software que irá utilizá-lo é como cavar 
-um buraco antes de saber o que você irá precisar enterrar nele.
+  um buraco antes de saber o que você irá precisar enterrar nele.
 
 * Database should be tailored to fit your application's needs, not the other way around.
 
 * Bancos de dados precisam ser adaptados para atender as necessidades 
-da sua aplicação, não o contrário.
+  da sua aplicação, não o contrário.
 
 * Some data storage engines don't have a notion of tables, rows or even
   schema, which makes it hard to use them if your perception of a model
   is that it represents a table.
 
 * Alguns mecanismos de armazenamento de dados não têm uma noção de 
-tabelas, linhas ou até mesmo de esquema, o que torna difícil usá-los se a 
-sua percepção de um modelo é que ele representa uma tabela.
+  tabelas, linhas ou até mesmo de esquema, o que torna difícil usá-los se a 
+  sua percepção de um modelo é que ele representa uma tabela.
 
 * Keeping database schema in your head while designing your application
   domain is problematic, and following the rule of the lowest common
   denominator will give you the worst of both worlds.
 
-* Mantendo o esquema de banco de dados na sua cabeça enquanto
-planeja o domínio da sua aplicação é problemático, e seguindo a regra
-do menor denominador comum vai lhe trazer o pior dos dois mundos.
+* Manter o esquema de banco de dados na sua cabeça enquanto
+  planeja o domínio da sua aplicação é problemático, e seguindo a regra
+  do menor denominador comum vai lhe trazer o pior dos dois mundos.
 
 The `Doctrine2 ORM`_ is designed to remove the need to keep database
 structure in mind and let you concentrate on writing the cleanest
@@ -252,7 +252,15 @@ Com a introdução do Doctrine2, muitos dos paradigmas fundamentais foram altera
 modelados após seus protótipos do mundo real. Por exemplo um objeto `Carro` é
 melhor modelado contendo `Motor`, quatro instâncias de `Pneu`, etc. e deve ser
 produzido pela `FabricaDeCarros` - alguma coisa que saiba como montar todas as partes
-juntas. 
+juntas. No entanto, o propósito deste guia isso deve ser claro, que um carro não pode 
+ligar-se sozinho, deve haver um impulso externo para ligá-lo. De maneira semelhante, 
+um modelo não pode salvar-se sem um impulso externo, portanto, o seguinte pedaço de 
+código viola o DDD (Domain Driven Design) e vai ser problemático para reprojetá-lo de 
+forma limpa e testável.
+
+
+
+
 
 .. code-block:: php
 
@@ -263,12 +271,26 @@ Instead Doctrine2 uses a different set of patterns, most importantly the
 `Data Mapper`_ and `Unit Of Work`_ patterns. So in Doctrine2 you would do
 the following:
 
+Assim, o Doctrine2 não é mais uma típica implementação `Active Record`_.
+Ao invés Doctrine2 usaum diferente conjunto de padrões, sendo `Data Mapper`_ 
+e `Unit Of Work` os padrões mais importantes. Então no Doctrine2 você pode
+fazer o seguinte:
+
 .. code-block:: php
 
    $manager = //... get object manager instance
 
    $manager->persist($post);
    $manager->flush();
+
+
+.. code-block:: php
+
+   $manager = //... pega uma instância do object manager
+
+   $manager->persist($post);
+   $manager->flush();
+
 
 The "object manager" is a central object provided by Doctrine whose job
 is to persist objects. You'll soon learn much more about this service.
@@ -283,10 +305,30 @@ database and query optimizations even less, as all queries are as lazy
 as possible (i.e. their execution is deferred until the latest possible
 moment).
 
+O "object manager" é um objeto central fornecido pelo Doctrine cujo papel
+é persistir objetos. Você vai em breve aprender muito mais sobre este serviço.
+Esta mudança de paradigma permite nos livrarmos de qualquer classes de banco
+(ex. o ``Post`` não precisa estender classe de banco sequer) e dependências 
+estáticas. Qualquer objeto pode ser salvo num banco de dados para recuperação
+futura. Mais que isso, uma vez persistido, um objeto é gerenciado pelo 
+object manager, até que o manager seja limpo explicitamente. Isso significa, todos
+as interações de objetos acontecem na memória sem nunca ir para o banco de dados
+até que ``$manager->flush()`` seja chamado. Desnecessário dizer, que este tipo de
+abordagem permite que você se preocupe menos ainda com banco de dados e 
+otimização de consultas, como todas as consultas são tão preguiçosas 
+quanto é possível (ou seja, a execução delas é atrasada até o momento 
+mais tardio possível).
+
 A very important aspect of ActiveRecord is performance, or rather the difficulty
 in building a performant system. By using transactions and in-memory object
 change tracking, Doctrine2 minimizes the communication with the database,
 saving not only database execution time, but also expensive network communication.
+
+Um aspecto muito importante do ActiveRecord é o desempenho, ou melhor, a dificuldade
+de construir um sistema de alto desempenho. Usando transações e controle de 
+transações de objeto na memória, o Doctrine2 diminui a comunicação com o banco de dados, 
+economizando não somente no tempo de execução do banco de dados, mas também 
+o grande tráfego na rede.
 
 Conclusion / Conclusão
 ----------
