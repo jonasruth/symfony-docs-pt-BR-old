@@ -273,7 +273,7 @@ the following:
 
 Assim, o Doctrine2 não é mais uma típica implementação `Active Record`_.
 Ao invés Doctrine2 usaum diferente conjunto de padrões, sendo `Data Mapper`_ 
-e `Unit Of Work` os padrões mais importantes. Então no Doctrine2 você pode
+e `Unit Of Work`_ os padrões mais importantes. Então no Doctrine2 você pode
 fazer o seguinte:
 
 .. code-block:: php
