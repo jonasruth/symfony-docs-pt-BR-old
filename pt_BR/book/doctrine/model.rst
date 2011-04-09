@@ -307,7 +307,7 @@ moment).
 
 O "object manager" é um objeto central fornecido pelo Doctrine cujo papel
 é persistir objetos. Você vai em breve aprender muito mais sobre este serviço.
-Esta mudança de paradigma permite nos livrarmos de qualquer classes de banco
+Esta mudança de paradigma permite nos livrarmos de quaisquer classes de banco
 (ex. o ``Post`` não precisa estender classe de banco sequer) e dependências 
 estáticas. Qualquer objeto pode ser salvo num banco de dados para recuperação
 futura. Mais que isso, uma vez persistido, um objeto é gerenciado pelo 
